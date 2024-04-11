@@ -1,3 +1,7 @@
+// Licensed under GNU GPL 3.0
+// Author Alexander Yell "https://mastodon.nove.team/@NotYourMagicBonkStick"
+
+
 #include <filesystem>
 #include <string>
 
