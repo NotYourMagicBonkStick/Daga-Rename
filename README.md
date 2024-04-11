@@ -37,6 +37,7 @@ If you find a bug, please refer to [Contributing](./docs/contributing.md).
 ## Linux
 
 You need the following packages installed:
+- git
 - g++
 - libexiv2-dev
 
