@@ -6,9 +6,10 @@ The program renames all provided photos to a following format `YYYY-MM-DD_hh-mm-
 
 This is a free software licensed under GNU GPL and comes with no warranty. See [LICENSE](./LICENSE).
 
-[usage.md]:# (./docs/usage.md)
+[Usage](./docs/usage.md)
 
-[instalation.md]:# (./docs/instalation.md)
+[Instalation](./docs/instalation.md)
+
 ---
 
 # Contributing
