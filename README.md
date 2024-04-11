@@ -53,10 +53,11 @@ To uninstall simply delete the `Photo-Rename` folder and the alias at `~/.bash_a
 ## Windows
 
 Not tested or supported
+
 Switch to penguin
 
 ---
 
 # Contributing
 
-Feel free to contribute to the project. Please refer to [Contributing](./docs/contributing.md)
+Feel free to contribute to the project. Please refer to [Contributing](./docs/contributing.md).
