@@ -46,6 +46,7 @@ To install the program run the following commands:
 git clone https://github.com/NotYourMagicBonkStick/Photo-Rename
 cd Photo-Rename
 chmod +x compile.sh
+compile.sh
 echo "alias Photo-Rename="$(pwd)/Photo-Rename.bin" >> ~/.bash_aliases
 ```
 
