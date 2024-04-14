@@ -1,4 +1,4 @@
-# Get_Extension
+# Get Extension
 
 This function returns `std::string`. It contains all characters after the last `.` including. The function takes one argument which is `std::filesystem::path` type. The path is supposed to be the directory of which extension you want to get.
 
