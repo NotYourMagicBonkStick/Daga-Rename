@@ -7,7 +7,7 @@
 
 #include "getExtension.h"
 
-std::filesystem::path conflictHandler(const std::filesystem::path& inDir, int i = 1) {
+std::filesystem::path conflictHandler(const std::filesystem::path& inDir, const std::string& ID, int i = 1) {
 
     std::filesystem::path outDir = inDir;
 
@@ -17,14 +17,14 @@ std::filesystem::path conflictHandler(const std::filesystem::path& inDir, int i 
         procString = inDir.string();
 
 
-        procString.insert(procString.length() - getExtension(inDir).length(), '-' + std::to_string(i));
+        procString.insert(procString.length() - getExtension(inDir).length() - ID.length() - 1, '-' + std::to_string(i));
         outDir = std::filesystem::path(procString);
 
         if (std::filesystem::exists(outDir)) {
-            outDir = conflictHandler(inDir, i + 1);
+            outDir = conflictHandler(inDir, ID, i + 1);
         }
 
     }
-//yyyy-mm-dd-hh-mm-ss.jpg
+
     return outDir;
 }

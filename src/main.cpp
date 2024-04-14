@@ -110,7 +110,7 @@ int main(int argc, char *argv[]) {
         }
 
         newDir[i] = listOfFiles[i].parent_path() / newName[i];
-        newDir[i] = conflictHandler (newDir[i]);
+        newDir[i] = conflictHandler (newDir[i], ID);
 
         std::filesystem::rename(listOfFiles[i], newDir[i]);
         if (!std::filesystem::exists(newDir[i])) {
