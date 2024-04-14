@@ -20,6 +20,10 @@ std::string getExtension(const std::filesystem::path& dir) {
         // what if there is no dot
     }
 
+    if (0 >= beg) {
+        return "";
+    }
+
     std::string fileExt = dirProc.substr(beg, span);
 
     return fileExt;
