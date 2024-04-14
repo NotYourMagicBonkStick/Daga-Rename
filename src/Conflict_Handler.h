@@ -5,9 +5,9 @@
 #include <filesystem>
 #include <string>
 
-#include "getExtension.h"
+#include "Get_Extension.h"
 
-std::filesystem::path conflictHandler(const std::filesystem::path& inDir, const std::string& ID, int i = 1) {
+std::filesystem::path Conflict_Handler(const std::filesystem::path& inDir, const std::string& ID, int i = 1) {
 
     std::filesystem::path outDir = inDir;
 
@@ -17,11 +17,12 @@ std::filesystem::path conflictHandler(const std::filesystem::path& inDir, const 
         procString = inDir.string();
 
 
-        procString.insert(procString.length() - getExtension(inDir).length() - ID.length() - 1, '-' + std::to_string(i));
+        procString.insert(procString.length() - Get_Extension(inDir).length() - ID.length() - 1, '-' + std::to_string(i));
         outDir = std::filesystem::path(procString);
 
+
         if (std::filesystem::exists(outDir)) {
-            outDir = conflictHandler(inDir, ID, i + 1);
+            outDir = Conflict_Handler(inDir, ID, i + 1);
         }
 
     }

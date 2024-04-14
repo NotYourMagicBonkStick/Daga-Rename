@@ -8,7 +8,7 @@
 #include <iostream>
 #include <filesystem>
 
-std::string getExtension(const std::filesystem::path& dir) {
+std::string Get_Extension(const std::filesystem::path& dir) {
 
     std::string dirProc = dir.string();
     int beg = dirProc.length();

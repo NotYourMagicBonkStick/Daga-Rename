@@ -9,8 +9,8 @@
 #include "dirCheck.h"
 #include "listContents.h"
 #include "extractDate.h"
-#include "getExtension.h"
-#include "conflictHandler.h"
+#include "Get_Extension.h"
+#include "Conflict_Handler.h"
 
 
 const std::string version = "v0.9";
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        extension = getExtension(listOfFiles[i]);
+        extension = Get_Extension(listOfFiles[i]);
         if ("" != ID) {
             newName[i] = dateTime[i] + '_' + ID + extension;
         }else{
@@ -110,7 +110,7 @@ int main(int argc, char *argv[]) {
         }
 
         newDir[i] = listOfFiles[i].parent_path() / newName[i];
-        newDir[i] = conflictHandler (newDir[i], ID);
+        newDir[i] = Conflict_Handler (newDir[i], ID);
 
         std::filesystem::rename(listOfFiles[i], newDir[i]);
         if (!std::filesystem::exists(newDir[i])) {
