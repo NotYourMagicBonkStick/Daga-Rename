@@ -6,9 +6,9 @@
 #include <cstring>
 #include <vector>
 
-#include "dirCheck.h"
-#include "listContents.h"
-#include "extractDate.h"
+#include "Directory_Check.h"
+#include "List_Contents.h"
+#include "Extract_Date.h"
 #include "Get_Extension.h"
 #include "Conflict_Handler.h"
 
@@ -51,10 +51,10 @@ int main(int argc, char *argv[]) {
     for (unsigned int i = 0; i < listOfElements.size (); ++i ) {
 
 
-        if ( doesExist(listOfElements[i]) ) {
+        if ( does_Exist(listOfElements[i]) ) {
 
-            if ( isFolder (listOfElements[i]) ) {
-                listContents (listOfElements[i], listOfFiles);
+            if ( is_Folder (listOfElements[i]) ) {
+                List_Contents (listOfElements[i], listOfFiles);
             }else{
                 listOfFiles.push_back ( std::filesystem::path(listOfElements[i]) );
             }
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
 
 
     for (unsigned int i = 0; i < numberOfFiles; ++i ) {
-        dateTime[i] = extractDate (listOfFiles[i]);
+        dateTime[i] = Extract_Date (listOfFiles[i]);
 
         if ("x" == dateTime[i]) {
             std::cout << "No creation time found: " << listOfFiles[i] << std::endl;
