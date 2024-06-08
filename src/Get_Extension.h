@@ -17,9 +17,9 @@ std::string Get_Extension(const std::filesystem::path& dir) {
     while (0 < beg && '.' != dirProc[beg]) {
         --beg;
         ++span;
-        // what if there is no dot
     }
 
+    //if there is no dot
     if (0 >= beg) {
         return "";
     }
