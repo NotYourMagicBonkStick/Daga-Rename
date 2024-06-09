@@ -21,11 +21,18 @@ int main(int argc, char *argv[]) {
         std::cout << "Photo-Rename " << version << std::endl;
         std::cout << "Usage: Photo-Rename <ID> <file>" << std::endl;
         std::cout << "Preferred way to provide the files is Drag'n'Drop" << std::endl;
-        std::cout << "To create a name with ID use \"-ID\"" << std::endl;
+        std::cout << "To create a name with ID use \"-ID\" before any file" << std::endl;
+        std::cout << "ID argument is optional and can be omitted if you don't want an ID" << std::endl;
         std::cout << "Works with folders" << std::endl;
         std::cout << "To rename multiple individual files use:" << std::endl;
         std::cout << "Photo-Rename <ID> <file1> <file2>" << std::endl;
-        return 0;
+        return 1;
+    }
+
+    if (argc == 2 && argv[1][0] == '-') {
+        std::cout << "Photo-Rename" << version << std::endl;
+        std::cout << "Missing arguments: no directory specified" << std::endl;
+        return 2;
     }
 
 
