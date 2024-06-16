@@ -17,6 +17,8 @@ const std::string version = "v0.9";
 
 int main(int argc, char *argv[]) {
 
+    // print messages
+
     if (argc < 2 || 0 == strcmp(argv[1], "help") ) {
         std::cout << "Photo-Rename " << version << std::endl;
         std::cout << "Usage: Photo-Rename <ID> <file>" << std::endl;
@@ -89,6 +91,7 @@ int main(int argc, char *argv[]) {
     std::string extension;
 
 
+// Build new filenames
     for (unsigned int i = 0; i < numberOfFiles; ++i ) {
         dateTime[i] = Extract_Date (listOfFiles[i]);
 
