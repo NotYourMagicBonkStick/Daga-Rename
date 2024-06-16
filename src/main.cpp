@@ -13,7 +13,7 @@
 #include "Conflict_Handler.h"
 
 
-const std::string version = "v0.9";
+const std::string version = "v1.0";
 
 int main(int argc, char *argv[]) {
 
