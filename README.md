@@ -30,7 +30,7 @@ If there's no date of shooting the photo then the file will be omitted.
 
 ### Errors
 
-Generally there aren't any I'm aware of. If you find any, please refer to [Contributing](./docs/contributing.md).
+Generally there aren't any I'm aware of. If you find any, please refer to [Contributing](./contributing.md).
 
 ---
 
@@ -50,10 +50,10 @@ chmod +x compile.sh
 echo "alias Daga-Rename=\"$(pwd)/Daga-Rename.bin\"" >> ~/.bash_aliases
 ```
 
-To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clatter your system. The above mentioned are the only directories affected.
+To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clutter your system. The above mentioned are the only directories affected.
 
 ---
 
 # Contributing
 
-Feel free to contribute to the project. Please refer to [Contributing](./docs/contributing.md).
+Feel free to contribute to the project. Please refer to [Contributing](./contributing.md).
