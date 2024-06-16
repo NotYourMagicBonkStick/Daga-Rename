@@ -22,6 +22,8 @@ std::string Extract_Date(const std::filesystem::path& path) {
         return datetime.substr(0, 4) + '-' + datetime.substr(5, 2) + '-' + datetime.substr(8, 2) + '_' + datetime.substr(11, 2) + '-' + datetime.substr(14, 2) + '-' + datetime.substr(17, 2);
     }
 
+
+// this is optional and it is a modified date
 /*
     it = exif_data.findKey(Exiv2::ExifKey("Exif.Photo.DateTimeDigitized"));
     if (it != exif_data.end()) {
