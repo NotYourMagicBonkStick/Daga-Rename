@@ -1,4 +1,4 @@
-# Photo-Rename
+# Daga-Rename
 
 Simple command line tool to rename photos
 
@@ -12,19 +12,19 @@ This is a free software licensed under GNU GPL and comes with no warranty. See [
 
 The program is launched from the command line. It requires at least one argument which is the directory you want to be changed.
 
-`Photo-Rename '/path/to/photo 1.jpg'`
+`Daga-Rename '/path/to/photo 1.jpg'`
 
 If you want to add an ID tag at the end of the filename, then specify the ID using `-` character in the first argument. The ID is optional and does not need to be provided.
 
-`Photo-Rename <ID> '/path/to/photo 1.jpg'`
+`Daga-Rename <ID> '/path/to/photo 1.jpg'`
 
 The same works with folders and multiple directories specified in the next arguments passed to the program.
 
-`Photo-Rename <ID> '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
+`Daga-Rename <ID> '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
-`Photo-Rename '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
+`Daga-Rename '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
-If you are uncertain on how to use this program then run `Photo-Rename help` to see a quick manual.
+If you are uncertain on how to use this program then run `Daga-Rename help` to see a quick manual.
 
 If there's no date of shooting the photo then the file will be omitted.
 
@@ -43,14 +43,14 @@ You need the following packages installed:
 
 To install the program, go to the directory you wish to install it and run the following commands:
 ```bash
-git clone https://github.com/NotYourMagicBonkStick/Photo-Rename
-cd Photo-Rename
+git clone https://github.com/NotYourMagicBonkStick/Daga-Rename
+cd Daga-Rename
 chmod +x compile.sh
 ./compile.sh
-echo "alias Photo-Rename=\"$(pwd)/Photo-Rename.bin\"" >> ~/.bash_aliases
+echo "alias Daga-Rename=\"$(pwd)/Daga-Rename.bin\"" >> ~/.bash_aliases
 ```
 
-To uninstall simply delete the `Photo-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clatter your system. The above mentioned are the only directories affected.
+To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clatter your system. The above mentioned are the only directories affected.
 
 ---
 
