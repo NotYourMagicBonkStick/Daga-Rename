@@ -9,6 +9,8 @@ The function takes three arguments:
 
 If the provided directory already exists, the function will create a new `std::string procString` based on the path. It will calculate the length of `ID` and the files' extension in characters. Then it'll use it to find where to insert the additional label to the `procString`. The label is supposed to be placed between `creation time` and `ID`, such as `YYYY-MM-DD_hh-mm-ss-label_ID.extension`.
 
+The `if` statement has been added so that the `ID` is inserted in the right place, as presence or absence of `ID` would cause off-by-one bug.
+
 The label is an `std::string` representation of an `int` type.
 
 Function checks again if the directory exists. If yes, the above will happen again with higher `int` value. Once a unique directory is found, the function returns it as `std::filesystem::type`.

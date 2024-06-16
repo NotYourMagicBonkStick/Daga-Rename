@@ -17,7 +17,14 @@ std::filesystem::path Conflict_Handler(const std::filesystem::path& inDir, const
         procString = inDir.string();
 
 
-        procString.insert(procString.length() - Get_Extension(inDir).length() - ID.length() - 1, '-' + std::to_string(i));
+        // Prevents presence of ID from messing up the filename
+        if("" == ID){
+            procString.insert(procString.length() - Get_Extension(inDir).length(), '-' + std::to_string(i));
+        }else{
+            procString.insert(procString.length() - Get_Extension(inDir).length() - ID.length() -1, '-' + std::to_string(i));
+        }
+
+
         outDir = std::filesystem::path(procString);
 
 
@@ -29,3 +36,5 @@ std::filesystem::path Conflict_Handler(const std::filesystem::path& inDir, const
 
     return outDir;
 }
+
+// yyyy-mm-dd_hh-mm-ss.ext
