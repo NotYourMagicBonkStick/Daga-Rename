@@ -17,11 +17,11 @@ const std::string version = "v0.9";
 
 int main(int argc, char *argv[]) {
 
-    if (argc < 3 || 0 == strcmp(argv[1], "help") ) {
+    if (argc < 2 || 0 == strcmp(argv[1], "help") ) {
         std::cout << "Photo-Rename " << version << std::endl;
         std::cout << "Usage: Photo-Rename <ID> <file>" << std::endl;
         std::cout << "Preferred way to provide the files is Drag'n'Drop" << std::endl;
-        std::cout << "To create a name with no ID use \"\\!0\"" << std::endl;
+        std::cout << "To create a name with ID use \"-ID\"" << std::endl;
         std::cout << "Works with folders" << std::endl;
         std::cout << "To rename multiple individual files use:" << std::endl;
         std::cout << "Photo-Rename <ID> <file1> <file2>" << std::endl;
@@ -31,17 +31,20 @@ int main(int argc, char *argv[]) {
 
     std::vector <std::string>listOfElements;
 
-    // Push dirs to list
-    for (int i = 2; i < argc; ++i) {
-        listOfElements.push_back (argv[i]);
-    }
 
     // set ID
     std::string ID;
-    if ( 0 == strcmp(argv[1], "!0") ) {
-        ID = "";
+    if (argv[1][0] == '-') {
+        ID = std::string(argv[1] + 1);
     }else{
-        ID = argv[1];
+        ID = "";
+        listOfElements.push_back(argv[1]); // if first argument is not ID then it is a dir
+    }
+
+
+    // Push dirs to list
+    for (int i = 2; i < argc; ++i) {
+        listOfElements.push_back (argv[i]);
     }
 
 
