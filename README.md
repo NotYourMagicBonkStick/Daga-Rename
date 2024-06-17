@@ -16,11 +16,11 @@ The program is launched from the command line. It requires at least one argument
 
 If you want to add an ID tag at the end of the filename, then specify the ID using `-` character in the first argument. The ID is optional and does not need to be provided.
 
-`Daga-Rename <ID> '/path/to/photo 1.jpg'`
+`Daga-Rename -ID '/path/to/photo 1.jpg'`
 
 The same works with folders and multiple directories specified in the next arguments passed to the program.
 
-`Daga-Rename <ID> '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
+`Daga-Rename -ID '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
 `Daga-Rename '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
