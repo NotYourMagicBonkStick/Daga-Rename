@@ -16,11 +16,11 @@ The program is launched from the command line. It requires at least one argument
 
 If you want to add an ID tag at the end of the filename, then specify the ID using `-` character in the first argument. The ID is optional and does not need to be provided.
 
-`Daga-Rename <ID> '/path/to/photo 1.jpg'`
+`Daga-Rename -ID '/path/to/photo 1.jpg'`
 
 The same works with folders and multiple directories specified in the next arguments passed to the program.
 
-`Daga-Rename <ID> '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
+`Daga-Rename -ID '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
 `Daga-Rename '/path/to/photo 1.jpg' '/path/to/photo 2.jpg' '/path/to/folder 1' '/path/to/folder 2'`
 
@@ -30,7 +30,7 @@ If there's no date of shooting the photo then the file will be omitted.
 
 ### Errors
 
-Generally there aren't any I'm aware of. If you find any, please refer to [Contributing](./docs/contributing.md).
+Generally there aren't any I'm aware of. If you find any, please refer to [Contributing](./contributing.md).
 
 ---
 
@@ -50,10 +50,10 @@ chmod +x compile.sh
 echo "alias Daga-Rename=\"$(pwd)/Daga-Rename.bin\"" >> ~/.bash_aliases
 ```
 
-To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clatter your system. The above mentioned are the only directories affected.
+To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clutter your system. The above mentioned are the only directories affected.
 
 ---
 
 # Contributing
 
-Feel free to contribute to the project. Please refer to [Contributing](./docs/contributing.md).
+Feel free to contribute to the project. Please refer to [Contributing](./contributing.md).

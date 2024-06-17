@@ -2,7 +2,7 @@
 
 Use this function with folders. It does not return anything.
 
-The function and it requires 2 arguments:
+The function is `void` type and it requires 2 arguments:
 - `std::string` - Directory of which contents you want to list
 - `std::vector<std::filesystem::path>` - The output is saved to the vector
 
