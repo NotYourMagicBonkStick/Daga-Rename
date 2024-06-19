@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
         if ( does_Exist(listOfElements[i]) ) {
 
             if ( is_Folder (listOfElements[i]) ) {
-                List_Contents (listOfElements[i], listOfFiles);
+                List_Contents (std::filesystem::path (listOfElements[i]), listOfFiles);
             }else{
                 listOfFiles.push_back ( std::filesystem::path(listOfElements[i]) );
             }

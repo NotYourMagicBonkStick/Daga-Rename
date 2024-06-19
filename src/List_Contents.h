@@ -6,12 +6,11 @@
 #include <vector>
 #include <filesystem>
 
-void List_Contents (const std::string inPath, std::vector<std::filesystem::path>& subdirs) {
+void List_Contents (const std::filesystem::path inPath, std::vector<std::filesystem::path>& subdirs) {
 
-    std::filesystem::path dir(inPath);
-    for (const std::filesystem::directory_entry& entry : std::filesystem::directory_iterator(dir) ) {
+    for (const std::filesystem::directory_entry& entry : std::filesystem::directory_iterator(inPath) ) {
         if (entry.is_directory()) {
-            std::cout << "Omitting inner folder: " << entry.path().string() << std::endl;
+            List_Contents (entry.path(), subdirs);
         }else{
             std::filesystem::path path(entry.path());
             subdirs.push_back(path);
