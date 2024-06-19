@@ -11,9 +11,10 @@
 #include "Extract_Date.h"
 #include "Get_Extension.h"
 #include "Conflict_Handler.h"
+#include "Is_Supported.h"
 
 
-const std::string version = "v1.0";
+const std::string version = "v1.0.3";
 
 int main(int argc, char *argv[]) {
 
@@ -34,7 +35,7 @@ int main(int argc, char *argv[]) {
 
     if (argc == 2 && argv[1][0] == '-') {
         std::cout << "Daga-Rename" << version << std::endl;
-        std::cout << "Missing arguments: no directory specified" << std::endl;
+        std::cout << "Missing arguments: no directory specified." << std::endl;
         return 2;
     }
 
@@ -61,29 +62,43 @@ int main(int argc, char *argv[]) {
 
     // Directory discovery
     std::vector <std::filesystem::path>listOfFiles;
+    std::vector <std::filesystem::path>unverified_Support;
     for (unsigned int i = 0; i < listOfElements.size (); ++i ) {
 
-
-        if ( does_Exist(listOfElements[i]) ) {
-
-            if ( is_Folder (listOfElements[i]) ) {
-                List_Contents (listOfElements[i], listOfFiles);
-            }else{
-                listOfFiles.push_back ( std::filesystem::path(listOfElements[i]) );
-            }
-
-        }else{      // If given dir does not exist
+        if ( false == does_Exist (listOfElements[i]) ) {
             std::cout << "Omitting inaccessible directory: " << listOfElements[i] << std::endl;
+            continue;
+        }
+
+        // Directory iterator
+        if (is_Folder (listOfElements[i]) ) {
+            List_Contents (std::filesystem::path (listOfElements[i]), unverified_Support);
+        }else{
+            unverified_Support.push_back ( std::filesystem::path (listOfElements[i]) );
         }
 
 
-        std::cout << "Discovering files: " << listOfFiles.size () << '\r';
+        std::cout << "Discovering files: " << unverified_Support.size () << '\r';
 
     }
     std::cout << std::endl;
 
 
+    // Verify support for files
+    for (unsigned int i = 0; i < unverified_Support.size(); ++i) {
+
+        // Check if given file is supported by the libexiv2-dev library
+        if ( false == Is_Supported ( Get_Extension(unverified_Support[i]) ) ) {
+            std::cout << "Omitting unsupported file format: " << unverified_Support[i] << std::endl;
+            continue;
+        }
+
+        listOfFiles.push_back(unverified_Support[i]);
+
+    }
     unsigned int numberOfFiles = listOfFiles.size();
+    std::cout << "Found " << numberOfFiles << " media files." << std::endl;
+
 
 
     std::string dateTime[numberOfFiles];
