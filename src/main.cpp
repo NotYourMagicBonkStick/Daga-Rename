@@ -11,9 +11,10 @@
 #include "Extract_Date.h"
 #include "Get_Extension.h"
 #include "Conflict_Handler.h"
+#include "Is_Supported.h"
 
 
-const std::string version = "v1.0.1";
+const std::string version = "v1.0.3";
 
 int main(int argc, char *argv[]) {
 
@@ -61,6 +62,7 @@ int main(int argc, char *argv[]) {
 
     // Directory discovery
     std::vector <std::filesystem::path>listOfFiles;
+    std::vector <std::filesystem::path>unverified_Support;
     for (unsigned int i = 0; i < listOfElements.size (); ++i ) {
 
         if ( false == does_Exist (listOfElements[i]) ) {
@@ -68,29 +70,35 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-
-        // File formats that are not media and crash the program
-        if ( ".zip" == Get_Extension (listOfElements[i]) ) {
-            std::cout << "Omitting unsupported file format: " << listOfElements[i] << std::endl;
-            continue;
-        }
-
-
         // Directory iterator
         if (is_Folder (listOfElements[i]) ) {
-            List_Contents (std::filesystem::path (listOfElements[i]), listOfFiles);
+            List_Contents (std::filesystem::path (listOfElements[i]), unverified_Support);
         }else{
-            listOfFiles.push_back ( std::filesystem::path (listOfElements[i]) );
+            unverified_Support.push_back ( std::filesystem::path (listOfElements[i]) );
         }
 
 
-        std::cout << "Discovering files: " << listOfFiles.size () << '\r';
+        std::cout << "Discovering files: " << unverified_Support.size () << '\r';
 
     }
     std::cout << std::endl;
 
 
+    // Verify support for files
+    for (unsigned int i = 0; i < unverified_Support.size(); ++i) {
+
+        // Check if given file is supported by the libexiv2-dev library
+        if ( false == Is_Supported ( Get_Extension(unverified_Support[i]) ) ) {
+            std::cout << "Omitting unsupported file format: " << unverified_Support[i] << std::endl;
+            continue;
+        }
+
+        listOfFiles.push_back(unverified_Support[i]);
+
+    }
     unsigned int numberOfFiles = listOfFiles.size();
+    std::cout << "Found " << numberOfFiles << " media files." << std::endl;
+
 
 
     std::string dateTime[numberOfFiles];
