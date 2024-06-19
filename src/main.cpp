@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 
     if (argc == 2 && argv[1][0] == '-') {
         std::cout << "Daga-Rename" << version << std::endl;
-        std::cout << "Missing arguments: no directory specified" << std::endl;
+        std::cout << "Missing arguments: no directory specified." << std::endl;
         return 2;
     }
 
