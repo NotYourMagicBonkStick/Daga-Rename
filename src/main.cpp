@@ -63,17 +63,24 @@ int main(int argc, char *argv[]) {
     std::vector <std::filesystem::path>listOfFiles;
     for (unsigned int i = 0; i < listOfElements.size (); ++i ) {
 
-
-        if ( does_Exist(listOfElements[i]) ) {
-
-            if ( is_Folder (listOfElements[i]) ) {
-                List_Contents (std::filesystem::path (listOfElements[i]), listOfFiles);
-            }else{
-                listOfFiles.push_back ( std::filesystem::path(listOfElements[i]) );
-            }
-
-        }else{      // If given dir does not exist
+        if ( false == does_Exist (listOfElements[i]) ) {
             std::cout << "Omitting inaccessible directory: " << listOfElements[i] << std::endl;
+            continue;
+        }
+
+
+        // File formats that are not media and crash the program
+        if ( ".zip" == Get_Extension (listOfElements[i]) ) {
+            std::cout << "Omitting unsupported file format: " << listOfElements[i] << std::endl;
+            continue;
+        }
+
+
+        // Directory iterator
+        if (is_Folder (listOfElements[i]) ) {
+            List_Contents (std::filesystem::path (listOfElements[i]), listOfFiles);
+        }else{
+            listOfFiles.push_back ( std::filesystem::path (listOfElements[i]) );
         }
 
 
