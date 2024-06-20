@@ -40,6 +40,8 @@ You need the following packages installed:
 - git
 - g++
 - libexiv2-dev (Debian)
+- libexiv2-devel (Fedora)
+- extra/exiv2 (Arch)
 
 To install the program, go to the directory you wish to install it and run the following commands:
 ```bash
