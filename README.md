@@ -39,7 +39,7 @@ Generally there aren't any I'm aware of. If you find any, please refer to [Contr
 You need the following packages installed:
 - git
 - g++
-- libexiv2-dev
+- libexiv2-dev (Debian)
 
 To install the program, go to the directory you wish to install it and run the following commands:
 ```bash
