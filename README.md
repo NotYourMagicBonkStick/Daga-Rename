@@ -39,17 +39,13 @@ Generally there aren't any I'm aware of. If you find any, please refer to [Contr
 You need the following packages installed:
 - git
 - g++
-- libexiv2-dev (Debian)
-- libexiv2-devel (Fedora)
-- extra/exiv2 (Arch)
+- libexiv2-dev
 
 To install the program, go to the directory you wish to install it and run the following commands:
 ```bash
 git clone https://github.com/NotYourMagicBonkStick/Daga-Rename
 cd Daga-Rename
-chmod +x compile.sh
-./compile.sh
-echo "alias Daga-Rename=\"$(pwd)/Daga-Rename.bin\"" >> ~/.bash_aliases
+make install
 ```
 
 To uninstall simply delete the `Daga-Rename` folder and the alias in the `~/.bash_aliases` file. This program produces no other files and does not clutter your system. The above mentioned are the only directories affected.
